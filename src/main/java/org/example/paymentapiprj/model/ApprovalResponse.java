@@ -13,6 +13,9 @@ public class ApprovalResponse {
 
     }
 
+    public ApprovalResponse(String paymentId12345, String approved, double v, String usd, String s) {
+    }
+
     public String getPaymentId() {
         return paymentId;
     }

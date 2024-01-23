@@ -10,6 +10,18 @@ public class ApprovalRequest {
     private String paymentMethod;
     private PaymentDetails paymentDetails;
 
+    public ApprovalRequest() {
+    }
+
+    public ApprovalRequest(String userId, double amount, String currency, String merchantId, String paymentMethod, PaymentDetails paymentDetails) {
+        this.userId = userId;
+        this.amount = amount;
+        this.currency = currency;
+        this.merchantId = merchantId;
+        this.paymentMethod = paymentMethod;
+        this.paymentDetails = paymentDetails;
+    }
+
     public String getUserId() {
         return userId;
     }
@@ -56,6 +68,45 @@ public class ApprovalRequest {
 
     public void setPaymentDetails(PaymentDetails paymentDetails) {
         this.paymentDetails = paymentDetails;
+    }
+
+    public static class PaymentDetails {
+        private String cardNumber;
+        private String expiryDate;
+        private String cvv;
+
+        public PaymentDetails() {
+        }
+
+        public PaymentDetails(String cardNumber, String expiryDate, String cvv) {
+            this.cardNumber = cardNumber;
+            this.expiryDate = expiryDate;
+            this.cvv = cvv;
+        }
+
+        public String getCardNumber() {
+            return cardNumber;
+        }
+
+        public void setCardNumber(String cardNumber) {
+            this.cardNumber = cardNumber;
+        }
+
+        public String getExpiryDate() {
+            return expiryDate;
+        }
+
+        public void setExpiryDate(String expiryDate) {
+            this.expiryDate = expiryDate;
+        }
+
+        public String getCvv() {
+            return cvv;
+        }
+
+        public void setCvv(String cvv) {
+            this.cvv = cvv;
+        }
     }
 
 }

@@ -8,6 +8,9 @@ public class EstimateRequest {
     private String destination;
     private String userId;
 
+    public EstimateRequest(double v, String usd, String merchantId123, String number) {
+    }
+
     public double getAmount() {
         return amount;
     }

@@ -11,6 +11,9 @@ public class EstimateResponse {
 
     }
 
+    public EstimateResponse(double estimatedTotal, double v, String currency) {
+    }
+
     public double getEstimatedTotal() {
         return estimatedTotal;
     }

@@ -24,6 +24,10 @@ public class ApprovalService {
         return createApprovedResponse(request);
     }
 
+    public ApprovalResponse processApproval(ApprovalRequest request) {
+        return createApprovedResponse(request);
+    }
+
     private ApprovalResponse createApprovedResponse(ApprovalRequest request) {
         PaymentEntity paymentEntity = paymentRepository.save(new PaymentEntity(request.getUserId(), request.getAmount(), request.getCurrency()));
 
