@@ -35,7 +35,6 @@ public class BalanceControllerTest {
 
     @Test
     void getBalance() throws Exception {
-        // Mock 데이터 생성
         String userId = "testUser";
         double balanceAmount = 500.0;
         String currency = "USD";
@@ -43,7 +42,6 @@ public class BalanceControllerTest {
         when(balanceRepository.findByUserId(userId))
                 .thenReturn(Optional.of(new BalanceEntity(userId, balanceAmount, currency)));
 
-        // API 호출 및 응답 확인
         mockMvc.perform(MockMvcRequestBuilders.get("/api/payment/balance/{userId}", userId)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())

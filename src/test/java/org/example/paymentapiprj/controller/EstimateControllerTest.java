@@ -38,10 +38,8 @@ public class EstimateControllerTest {
         EstimateRequest request = new EstimateRequest(150.00, "USD", "merchantId123", "12345");
         EstimateResponse response = new EstimateResponse(155.00, 5.00, "USD");
 
-        // Mock Service 호출 설정
         when(estimateService.calculateEstimatedTotal(any(EstimateRequest.class))).thenReturn(response);
 
-        // API 호출 및 응답 확인
         mockMvc.perform(MockMvcRequestBuilders.post("/api/payment/estimate")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request)))
