@@ -3,6 +3,7 @@ package org.example.paymentapiprj.controller;
 import org.example.paymentapiprj.Entity.BalanceEntity;
 import org.example.paymentapiprj.Repository.BalanceRepository;
 import org.example.paymentapiprj.model.BalanceResponse;
+import org.example.paymentapiprj.service.BalanceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,9 +17,12 @@ public class BalanceController {
 
     private final BalanceRepository balanceRepository;
 
+    private final BalanceService balanceService;
+
     @Autowired
-    public BalanceController(BalanceRepository balanceRepository) {
+    public BalanceController(BalanceRepository balanceRepository, BalanceService balanceService) {
         this.balanceRepository = balanceRepository;
+        this.balanceService = balanceService;
     }
 
     @GetMapping("/balance/{userId}")
