@@ -4,6 +4,7 @@ import org.example.paymentapiprj.Entity.EstimateEntity;
 import org.example.paymentapiprj.Repository.EstimateRepository;
 import org.example.paymentapiprj.model.EstimateRequest;
 import org.example.paymentapiprj.model.EstimateResponse;
+import org.example.paymentapiprj.service.EstimateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,9 +18,12 @@ public class EstimateController {
 
     private final EstimateRepository estimateRepository;
 
+    private final EstimateService estimateService;
+
     @Autowired
-    public EstimateController(EstimateRepository estimateRepository) {
+    public EstimateController(EstimateRepository estimateRepository, EstimateService estimateService) {
         this.estimateRepository = estimateRepository;
+        this.estimateService = estimateService;
     }
 
     @PostMapping("/estimate")

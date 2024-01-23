@@ -33,13 +33,13 @@ public class EstimateControllerTest {
     private EstimateController estimateController;
 
     @Test
-    void getEstimate() throws Exception {
+    void getEstimatedTotal() throws Exception {
         // Mock 데이터 설정
         EstimateRequest request = new EstimateRequest(150.00, "USD", "merchantId123", "12345");
         EstimateResponse response = new EstimateResponse(155.00, 5.00, "USD");
 
         // Mock Service 호출 설정
-        when(estimateService.calculateEstimate(any(EstimateRequest.class))).thenReturn(response);
+        when(estimateService.calculateEstimatedTotal(any(EstimateRequest.class))).thenReturn(response);
 
         // API 호출 및 응답 확인
         mockMvc.perform(MockMvcRequestBuilders.post("/api/payment/estimate")
