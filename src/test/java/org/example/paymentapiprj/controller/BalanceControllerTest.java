@@ -44,7 +44,6 @@ public class BalanceControllerTest {
         when(balanceRepository.findByUserId(userId))
                 .thenReturn(Optional.of(new BalanceEntity(userId, balanceAmount, currency)));
 
-        // When
         MvcResult result = mockMvc.perform(get("/api/payment/balance/{userId}", userId)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
@@ -53,7 +52,6 @@ public class BalanceControllerTest {
                 .andExpect(jsonPath("$.currency").value(currency))
                 .andReturn();
 
-        // Then (optional: additional assertions or verifications)
         String responseBody = result.getResponse().getContentAsString();
         System.out.println("Response Body: " + responseBody);
     }

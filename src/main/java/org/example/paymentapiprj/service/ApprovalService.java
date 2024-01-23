@@ -25,13 +25,10 @@ public class ApprovalService {
     }
 
     private ApprovalResponse createApprovedResponse(ApprovalRequest request) {
-        // H2 데이터베이스에서 정보 조회
         PaymentEntity paymentEntity = paymentRepository.save(new PaymentEntity(request.getUserId(), request.getAmount(), request.getCurrency()));
 
-        // 현재 시간을 포맷에 맞게 가져오기
         String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'"));
 
-        // 조회한 정보를 기반으로 응답 생성
         ApprovalResponse response = new ApprovalResponse();
         response.setPaymentId(String.valueOf(paymentEntity.getId()));
         response.setStatus("approved");

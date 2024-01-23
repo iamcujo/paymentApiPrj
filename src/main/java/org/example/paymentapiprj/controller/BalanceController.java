@@ -23,11 +23,9 @@ public class BalanceController {
 
     @GetMapping("/balance/{userId}")
     public BalanceResponse getBalance(@PathVariable String userId) {
-        // H2 데이터베이스에서 잔액 정보 조회
         BalanceEntity balanceEntity = balanceRepository.findByUserId(userId)
                 .orElse(new BalanceEntity(userId, 0.0, "USD"));
 
-        // 조회한 정보를 기반으로 응답 생성
         BalanceResponse response = new BalanceResponse();
         response.setUserId(userId);
         response.setBalance(balanceEntity.getBalance());

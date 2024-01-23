@@ -28,10 +28,8 @@ public class ApprovalController {
     @PostMapping("/approval")
     public ApprovalResponse approvePayment(@RequestBody ApprovalRequest request) {
 
-        // ApprovalService의 메서드 호출
         ApprovalResponse response = approvalService.approvePayment(request);
 
-        // 데이터베이스에 저장
         PaymentEntity paymentEntity = new PaymentEntity();
         paymentEntity.setUserId(request.getUserId());
         paymentEntity.setAmount(request.getAmount());
